@@ -226,7 +226,7 @@ Feed.prototype._open = function (cb) {
     if (key && !self._overwrite && !self.key) self.key = key
 
     if (!self.key && self.live) {
-      var keyPair = crypto.keyPair()
+      var keyPair = crypto.keyPair(self.secretKey)
       self.secretKey = keyPair.secretKey
       self.key = keyPair.publicKey
       generatedKey = true
